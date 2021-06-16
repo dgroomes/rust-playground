@@ -5,7 +5,6 @@
 To start, I'm following the [*The Rust Programming Language*](https://doc.rust-lang.org/stable/book) which is
 affectionately referred to as "The Book" in the Rust community.
 
-
 ## Notes
 
 Some notes.
@@ -29,3 +28,11 @@ Some notes.
   that all the time for all sorts of reasons. 
 * Quotes from [*References and Borrowing*](https://doc.rust-lang.org/stable/book/ch04-02-references-and-borrowing.html)
   > We call having references as function parameters borrowing. As in real life, if a person owns something, you can borrow it from them. When you’re done, you have to give it back.
+  
+  > Dangling References...the compiler will ensure that the data will not go out of scope before the reference to the data does.
+* Quotes from [*Method Syntax*](https://doc.rust-lang.org/stable/book/ch05-03-method-syntax.html)
+  > We’ve put all the things we can do with an instance of a type in one impl block rather than making future users of our code search for capabilities of Rectangle in various places in the library we provide.
+
+  > The fact that Rust makes borrowing implicit for method receivers is a big part of making ownership ergonomic in practice.
+* Quotes from [*Refactoring to Improve Modularity and Error Handling*](https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html)
+  > This Ok(()) syntax might look a bit strange at first, but using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.
