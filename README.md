@@ -5,6 +5,27 @@
 To start, I'm following the [*The Rust Programming Language*](https://doc.rust-lang.org/stable/book) which is
 affectionately referred to as "The Book" in the Rust community.
 
+## Standalone sub-projects
+
+This repository illustrates different concepts, patterns and examples via standalone sub-projects. Each sub-project is
+completely independent of the others and do not depend on the root project. This _standalone sub-project constraint_
+forces the sub-projects to be complete and maximizes the reader's chances of successfully running, understanding, and
+re-using the code.
+
+The sub-projects include:
+
+### `guessing_game/`
+
+Verbatim copy of the [*Programming a Guessing Game* chapter](https://doc.rust-lang.org/stable/book/ch02-00-guessing-game-tutorial.html).
+
+See the README in [`guessing_game/`](guessing_game/).
+
+### `read_file/`
+
+A simple Rust program to read a file and parse JSON using the popular Rust JSON library called [*Serde*](https://github.com/serde-rs/json).  
+
+See the README in [`read_file/`](read_file/).
+
 ## Notes
 
 Some notes.
@@ -36,3 +57,13 @@ Some notes.
   > The fact that Rust makes borrowing implicit for method receivers is a big part of making ownership ergonomic in practice.
 * Quotes from [*Refactoring to Improve Modularity and Error Handling*](https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html)
   > This Ok(()) syntax might look a bit strange at first, but using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.
+
+## Wish list
+
+General clean ups, TODOs and things I wish to implement for this project:
+
+* Create an error handling sub-project
+  * E.g. `Result/Ok/Err` and the `?` special thing
+* Create an argument parsing sub-project
+* Create an async sub-project
+* Create a sub-project that shells out to another process
