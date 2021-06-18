@@ -55,6 +55,39 @@ Some notes.
   > We’ve put all the things we can do with an instance of a type in one impl block rather than making future users of our code search for capabilities of Rectangle in various places in the library we provide.
 
   > The fact that Rust makes borrowing implicit for method receivers is a big part of making ownership ergonomic in practice.
+
+* Quotes from [*Managing Growing Projects with Packages, Crates, and Modules*](https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html)
+  > Rust has a number of features that allow you to manage your code’s organization, including which details are exposed, which details are private, and what names are in each scope in your programs. These features, sometimes collectively referred to as the module system, include:
+  >
+  >   * **Packages**: A Cargo feature that lets you build, test, and share crates
+  >   * **Crates**: A tree of modules that produces a library or executable
+  >   * **Modules** and use: Let you control the organization, scope, and privacy of paths
+  >   * **Paths**: A way of naming an item, such as a struct, function, or module  
+
+  > ...Cargo follows a convention that src/main.rs is the crate root of a binary crate with the same name as the package
+    * Confusing sentence. What do package names have to do with the idea that the file `src/main.rs` is a Cargo convention?
+      Or, is the file `main.rs` itself literally a crate? Can a crate be made up of more files (I mean I'm 99% sure yes,
+      I should just keep reading).
+  > If a package contains src/main.rs and src/lib.rs, it has two crates: a library and a binary, both with the same name as the package.
+    * The mental model conflation factor is high. We have one entity--the package--which in this case we can use the
+      example name 'my-project' which is also the same name as the project (*project* is not a Rust-specific concept to
+      be fair but even this doc chapter uses it). On top of that we have two crates (one binary, one library) with that
+      same name. In sum:
+        * Project named "my-project"
+          * You can think of the root directory itself as the project. This is a universal, non-Rust concept. 
+        * Package named "my-project"
+          * Think of the `Cargo.toml` file as the identifying thing of the package (I think?). 
+        * Binary crate named "my-project"
+          * Think of the file `src/main.rs` as the identifying thing of this crate. 
+        * Library crate named "my-project"
+          * Think of the file `src/lib.rs` as the identifying thing of this crate.
+      
+      Phew, now I understand it well after writing all that.
+    
+  > Using a semicolon after mod front_of_house rather than using a block tells Rust to load the contents of the module from another file with the same name as the module.
+
+  > The mod keyword declares modules, and Rust looks in a file with the same name as the module for the code that goes into that module. 
+
 * Quotes from [*Refactoring to Improve Modularity and Error Handling*](https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html)
   > This Ok(()) syntax might look a bit strange at first, but using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.
 
