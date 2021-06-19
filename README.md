@@ -34,6 +34,12 @@ A simple Rust program to deserialize and serialize JSON using the popular Rust J
 
 See the README in [`json/`](json/).
 
+### `iterators/`
+
+An illustration of Rust iterators.
+
+See the README in [`iterators/`](iterators/).
+
 ## Notes
 
 Some notes.
