@@ -5,6 +5,8 @@
 To start, I'm following the [*The Rust Programming Language*](https://doc.rust-lang.org/stable/book) which is
 affectionately referred to as "The Book" in the Rust community.
 
+I'm also using [*The Rust Reference*](https://doc.rust-lang.org/reference/introduction.html) book too. 
+
 ## Standalone sub-projects
 
 This repository illustrates different concepts, patterns and examples via standalone sub-projects. Each sub-project is
@@ -22,9 +24,15 @@ See the README in [`guessing_game/`](guessing_game/).
 
 ### `read_file/`
 
-A simple Rust program to read a file and parse JSON using the popular Rust JSON library called [*Serde*](https://github.com/serde-rs/json).  
+A simple Rust program to read a file.  
 
 See the README in [`read_file/`](read_file/).
+
+### `json/`
+
+A simple Rust program to deserialize and serialize JSON using the popular Rust JSON library called [*Serde*](https://github.com/serde-rs/json).
+
+See the README in [`json/`](json/).
 
 ## Notes
 
@@ -90,6 +98,9 @@ Some notes.
 
 * Quotes from [*Refactoring to Improve Modularity and Error Handling*](https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html)
   > This Ok(()) syntax might look a bit strange at first, but using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.
+
+* Quotes from [Chapter 14: *More About Cargo and Crates.io*](https://doc.rust-lang.org/stable/book/ch14-00-more-about-cargo.html)
+  > As your project develops, you might find that the library crate continues to get bigger and you want to split up your package further into multiple library crates. In this situation, Cargo offers a feature called workspaces that can help manage multiple related packages that are developed in tandem.
 
 ## Wish list
 

@@ -5,8 +5,6 @@ use read_file::Config;
 /*
   Mostly taken from https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html
   Also, I don't know how to write idiomatic comments in Rust!
-
-  Execute the program from the read_file/ root with `cargo run zips.json`
 */
 fn main() {
     let args : Vec<String> = env::args().collect();
