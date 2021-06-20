@@ -2,11 +2,6 @@
 
 📚 Learning and exploring the Rust programming language.
 
-To start, I'm following the [*The Rust Programming Language*](https://doc.rust-lang.org/stable/book) which is
-affectionately referred to as "The Book" in the Rust community.
-
-I'm also using [*The Rust Reference*](https://doc.rust-lang.org/reference/introduction.html) book too. 
-
 ## Standalone sub-projects
 
 This repository illustrates different concepts, patterns and examples via standalone sub-projects. Each sub-project is

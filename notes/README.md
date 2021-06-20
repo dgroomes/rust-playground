@@ -2,402 +2,125 @@
 
 This is not an executable project but instead contains my notes about Rust.
 
+I'm following [*The Rust Programming Language*](https://doc.rust-lang.org/stable/book) book by Carol Nichols and Steve Klabnik
+which is affectionately referred to as "The Book" in the Rust community.
+
+I'm also using [*The Rust Reference*](https://doc.rust-lang.org/reference/introduction.html) book too.
+
 ## Reading Checklist
 
-Crossing off sections of the book as I finish reading them.
+Crossing off sections of *The Rust Programming Language* book as I finish reading them.
 
 **The Rust Programming Language**
 
-<!-- This table of contents HTML taken from the Rust book webpage and edited to work best in a Markdown page -->
-<ol style="list-style-type: none">
-    <li style="list-style-type: none">The Rust Programming Language</li>
-    <li style="list-style-type: none">Foreword</li>
-    <li style="list-style-type: none">Introduction</li>
-    <li style="list-style-type: none"><strong aria-hidden="true">1.</strong> Getting Started</li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong aria-hidden="true">1.1.</strong> Installation</li>
-            <li style="list-style-type: none"><strong aria-hidden="true">1.2.</strong> Hello, World!</li>
-            <li style="list-style-type: none"><strong aria-hidden="true">1.3.</strong> Hello, Cargo!</li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">2.</strong> Programming a Guessing Game
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">3.</strong> Common Programming Concepts
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong aria-hidden="true">3.1.</strong>
-                Variables and Mutability
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">3.2.</strong> Data Types
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">3.3.</strong> Functions
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">3.4.</strong> Comments
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">3.5.</strong> Control Flow
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">4.</strong> Understanding Ownership
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">4.1.</strong> What is Ownership?
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">4.2.</strong>
-                References and Borrowing
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">4.3.</strong> The Slice Type
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">5.</strong> Using Structs to Structure Related Data
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">5.1.</strong> Defining and Instantiating Structs
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">5.2.</strong> An Example Program Using Structs
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">5.3.</strong> Method Syntax
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">6.</strong> Enums and Pattern Matching
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">6.1.</strong> Defining an Enum
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">6.2.</strong> The match Control Flow Operator
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">6.3.</strong> Concise Control Flow with if let
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">7.</strong> Managing Growing Projects with Packages, Crates, and Modules
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">7.1.</strong> Packages and Crates
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">7.2.</strong> Defining Modules to Control Scope and Privacy
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">7.3.</strong> Paths for Referring to an Item in the Module Tree
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">7.4.</strong> Bringing Paths Into Scope with the use Keyword
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">7.5.</strong>
-                Separating Modules into Different Files
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">8.</strong> Common Collections
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">8.1.</strong> Storing Lists of Values with Vectors
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">8.2.</strong> Storing UTF-8 Encoded Text with Strings
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">8.3.</strong> Storing Keys with Associated Values in Hash Maps
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">9.</strong> Error Handling
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong aria-hidden="true">9.1.</strong>
-                Unrecoverable Errors with panic!
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">9.2.</strong>
-                Recoverable Errors with Result
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">9.3.</strong> To
-                panic! or Not To panic!
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong aria-hidden="true">10.</strong>
-        Generic Types, Traits, and Lifetimes
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">10.1.</strong> Generic Data Types
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">10.2.</strong> Traits: Defining Shared Behavior
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">10.3.</strong> Validating References with Lifetimes
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">11.</strong>
-        Writing Automated Tests
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">11.1.</strong> How to Write Tests
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">11.2.</strong> Controlling How Tests Are Run
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">11.3.</strong> Test Organization
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">12.</strong> An I/O Project: Building a Command Line Program
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong aria-hidden="true">12.1.</strong>
-                Accepting Command Line Arguments
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">12.2.</strong> Reading a File
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">12.3.</strong>
-                Refactoring to Improve Modularity and Error Handling
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">12.4.</strong>
-                Developing the Library’s Functionality with Test Driven Development
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">12.5.</strong> Working
-                with Environment Variables
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">12.6.</strong> Writing
-                Error Messages to Standard Error Instead of Standard Output
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">13.</strong> Functional Language Features: Iterators and Closures
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">13.1.</strong> Closures: Anonymous Functions that Can Capture Their
-                Environment
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">13.2.</strong> Processing a Series of Items with Iterators
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">13.3.</strong>
-                Improving Our I/O Project
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">13.4.</strong> Comparing Performance: Loops vs. Iterators
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">14.</strong> More about Cargo and Crates.io
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">14.1.</strong> Customizing Builds with Release Profiles
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">14.2.</strong>
-                Publishing a Crate to Crates.io
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">14.3.</strong> Cargo Workspaces
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">15.</strong> Smart Pointers
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">15.1.</strong> Using Box&lt;T&gt; to Point to Data on the Heap
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">15.2.</strong> Treating Smart Pointers Like Regular References with the
-                Deref Trait
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">15.3.</strong> Running Code on Cleanup with the Drop Trait
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">15.4.</strong> Rc&lt;T&gt;, the Reference Counted Smart Pointer
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; and the Interior Mutability Pattern
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">15.6.</strong>
-                Reference Cycles Can Leak Memory
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">16.</strong> Fearless Concurrency
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">16.1.</strong> Using Threads to Run Code Simultaneously
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">16.2.</strong> Using Message Passing to Transfer Data Between Threads
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">16.3.</strong> Shared-State Concurrency
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">16.4.</strong>
-                Extensible Concurrency with the Sync and Send Traits
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">17.</strong> Object Oriented Programming Features of Rust
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">17.1.</strong> Characteristics of Object-Oriented Languages
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">17.2.</strong> Using Trait Objects That Allow for Values of Different
-                Types
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">17.3.</strong> Implementing an Object-Oriented Design Pattern
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong aria-hidden="true">18.</strong>
-        Patterns and Matching
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong aria-hidden="true">18.1.</strong> All the
-                Places Patterns Can Be Used
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">18.2.</strong> Refutability: Whether a Pattern Might Fail to Match
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">18.3.</strong> Pattern Syntax
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">19.</strong> Advanced Features
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">19.1.</strong> Unsafe Rust
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">19.2.</strong> Advanced Traits
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">19.3.</strong> Advanced Types
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">19.4.</strong>
-                Advanced Functions and Closures
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">19.5.</strong> Macros
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">20.</strong> Final Project: Building a Multithreaded Web Server
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">20.1.</strong> Building a Single-Threaded Web Server
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">20.2.</strong> Turning Our Single-Threaded Server into a Multithreaded
-                Server
-            </li>
-            <li style="list-style-type: none"><strong aria-hidden="true">20.3.</strong>
-                Graceful Shutdown and Cleanup
-            </li>
-        </ol>
-    </li>
-    <li style="list-style-type: none"><strong
-            aria-hidden="true">21.</strong> Appendix
-    </li>
-    <li>
-        <ol style="list-style-type: none">
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">21.1.</strong> A - Keywords
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">21.2.</strong> B - Operators and Symbols
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">21.3.</strong> C - Derivable Traits
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">21.4.</strong> D - Useful Development Tools
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">21.5.</strong> E - Editions
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">21.6.</strong> F - Translations of the Book
-            </li>
-            <li style="list-style-type: none"><strong
-                    aria-hidden="true">21.7.</strong> G - How Rust is Made and “Nightly Rust”
-            </li>
-        </ol>
-    </li>
-</ol>
+- [x] The Rust Programming Language
+- [x] Foreword
+- [x] Introduction
+- [x] 1\. Getting Started
+   - [x] 1.1. Installation
+   - [x] 1.2. Hello, World!
+   - [x] 1.3. Hello, Cargo!
+- [x] 2\. Programming a Guessing Game
+- [x] 3\. Common Programming Concepts
+   - [x] 3.1. Variables and Mutability
+   - [x] 3.2. Data Types
+   - [x] 3.3. Functions
+   - [x] 3.4. Comments
+   - [x] 3.5. Control Flow
+- [x] 4\. Understanding Ownership
+   - [x] 4.1. What is Ownership?
+   - [x] 4.2. References and Borrowing
+   - [x] 4.3. The Slice Type
+- [x] 5\. Using Structs to Structure Related Data
+   - [x] 5.1. Defining and Instantiating Structs
+   - [x] 5.2. An Example Program Using Structs
+   - [x] 5.3. Method Syntax
+- [ ] 6\. Enums and Pattern Matching
+   - [ ] 6.1. Defining an Enum
+   - [ ] 6.2. The match Control Flow Operator
+   - [ ] 6.3. Concise Control Flow with if let
+- [ ] 7\. Managing Growing Projects with Packages, Crates, and Modules
+   - [x] 7.1. Packages and Crates
+   - [x] 7.2. Defining Modules to Control Scope and Privacy
+   - [ ] 7.3. Paths for Referring to an Item in the Module Tree
+   - [ ] 7.4. Bringing Paths Into Scope with the use Keyword
+   - [x] 7.5. Separating Modules into Different Files
+- [ ] 8\. Common Collections
+   - [ ] 8.1. Storing Lists of Values with Vectors
+   - [ ] 8.2. Storing UTF-8 Encoded Text with Strings
+   - [ ] 8.3. Storing Keys with Associated Values in Hash Maps
+- [ ] 9\. Error Handling
+   - [ ] 9.1. Unrecoverable Errors with panic!
+   - [ ] 9.2. Recoverable Errors with Result
+   - [ ] 9.3. To panic! or Not To panic!
+- [ ] 10\. Generic Types, Traits, and Lifetimes
+    - [x] 10.1. Generic Data Types
+    - [ ] 10.2. Traits: Defining Shared Behavior
+    - [ ] 10.3. Validating References with Lifetimes
+- [ ] 11\. Writing Automated Tests
+    - [ ] 11.1. How to Write Tests
+    - [ ] 11.2. Controlling How Tests Are Run
+    - [ ] 11.3. Test Organization
+- [ ] 12\. An I/O Project: Building a Command Line Program
+    - [x] 12.1. Accepting Command Line Arguments
+    - [x] 12.2. Reading a File
+    - [x] 12.3. Refactoring to Improve Modularity and Error Handling
+    - [ ] 12.4. Developing the Library’s Functionality with Test Driven Development
+    - [ ] 12.5. Working with Environment Variables
+    - [ ] 12.6. Writing Error Messages to Standard Error Instead of Standard Output
+- [ ] 13\. Functional Language Features: Iterators and Closures
+    - [ ] 13.1. Closures: Anonymous Functions that Can Capture Their Environment
+    - [x] 13.2. Processing a Series of Items with Iterators
+    - [ ] 13.3. Improving Our I/O Project
+    - [ ] 13.4. Comparing Performance: Loops vs. Iterators
+- [ ] 14\. More about Cargo and Crates.io
+    - [ ] 14.1. Customizing Builds with Release Profiles
+    - [ ] 14.2. Publishing a Crate to Crates.io
+    - [ ] 14.3. Cargo Workspaces
+    - [ ] 14.4. Installing Binaries from Crates.io with cargo install
+    - [ ] 14.5. Extending Cargo with Custom Commands
+- [ ] 15\. Smart Pointers
+    - [ ] 15.1. Using Box<T> to Point to Data on the Heap
+    - [ ] 15.2. Treating Smart Pointers Like Regular References with the Deref Trait
+    - [ ] 15.3. Running Code on Cleanup with the Drop Trait
+    - [ ] 15.4. Rc<T>, the Reference Counted Smart Pointer
+    - [ ] 15.5. RefCell<T> and the Interior Mutability Pattern
+    - [ ] 15.6. Reference Cycles Can Leak Memory
+- [ ] 16\. Fearless Concurrency
+    - [ ] 16.1. Using Threads to Run Code Simultaneously
+    - [ ] 16.2. Using Message Passing to Transfer Data Between Threads
+    - [ ] 16.3. Shared-State Concurrency
+    - [ ] 16.4. Extensible Concurrency with the Sync and Send Traits
+- [ ] 17\. Object Oriented Programming Features of Rust
+    - [ ] 17.1. Characteristics of Object-Oriented Languages
+    - [ ] 17.2. Using Trait Objects That Allow for Values of Different Types
+    - [ ] 17.3. Implementing an Object-Oriented Design Pattern
+- [ ] 18\. Patterns and Matching
+    - [ ] 18.1. All the Places Patterns Can Be Used
+    - [ ] 18.2. Refutability: Whether a Pattern Might Fail to Match
+    - [ ] 18.3. Pattern Syntax
+- [ ] 19\. Advanced Features
+    - [ ] 19.1. Unsafe Rust
+    - [ ] 19.2. Advanced Traits
+    - [ ] 19.3. Advanced Types
+    - [ ] 19.4. Advanced Functions and Closures
+    - [ ] 19.5. Macros
+- [ ] 20\. Final Project: Building a Multithreaded Web Server
+    - [ ] 20.1. Building a Single-Threaded Web Server
+    - [ ] 20.2. Turning Our Single-Threaded Server into a Multithreaded Server
+    - [ ] 20.3. Graceful Shutdown and Cleanup
+- [ ] 21\. Appendix
+    - [ ] 21.1. A - Keywords
+    - [ ] 21.2. B - Operators and Symbols
+    - [ ] 21.3. C - Derivable Traits
+    - [ ] 21.4. D - Useful Development Tools
+    - [ ] 21.5. E - Editions
+    - [ ] 21.6. F - Translations of the Book
+    - [ ] 21.7. G - How Rust is Made and “Nightly Rust”
 
-## Notes
+## Notes from *The Book*
 
-Notes and quotes from [*The Rust Book Language* book](https://doc.rust-lang.org/stable/book/title-page.html).
+Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.org/stable/book).
 
 * Quotes from [Chapter 3.3: *Function Bodies Contain Statements and Expressions*](https://doc.rust-lang.org/stable/book/ch03-03-how-functions-work.html#function-bodies-contain-statements-and-expressions)
   > Rust is an expression-based language
