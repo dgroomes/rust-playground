@@ -92,8 +92,8 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
     - [ ] 16.3. Shared-State Concurrency
     - [ ] 16.4. Extensible Concurrency with the Sync and Send Traits
 - [ ] 17\. Object Oriented Programming Features of Rust
-    - [ ] 17.1. Characteristics of Object-Oriented Languages
-    - [ ] 17.2. Using Trait Objects That Allow for Values of Different Types
+    - [x] 17.1. Characteristics of Object-Oriented Languages
+    - [x] 17.2. Using Trait Objects That Allow for Values of Different Types
     - [ ] 17.3. Implementing an Object-Oriented Design Pattern
 - [ ] 18\. Patterns and Matching
     - [ ] 18.1. All the Places Patterns Can Be Used
@@ -227,12 +227,21 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
 * Quotes from [Chapter 14: *More About Cargo and Crates.io*](https://doc.rust-lang.org/stable/book/ch14-00-more-about-cargo.html)
   > As your project develops, you might find that the library crate continues to get bigger and you want to split up your package further into multiple library crates. In this situation, Cargo offers a feature called workspaces that can help manage multiple related packages that are developed in tandem.
 
+* Quotes from [Chapter 17: *Object Oriented Programming Features of Rust*](https://doc.rust-lang.org/stable/book/ch17-00-oop.html)
+  * [17.2: *Using Trait Objects That Allow for Values of Different Types*](https://doc.rust-lang.org/stable/book/ch17-02-trait-objects.html)
+  
+    > A generic type parameter can only be substituted with one concrete type at a time, whereas trait objects allow for multiple concrete types to fill in for the trait object at runtime.
+    
+    > When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t know all the types that might be used with the code that is using trait objects, so it doesn’t know which method implemented on which type to call.
+
 ## Questions
 
 * What are instances of structs called? Are they called objects? Or, is this not correct and I should not be thinking in
   the object-oriented mindset like with Java/JavaScript etc. For that matter, can I have an instance of things other than
   structs? I think I can have instances of traits, and some other things I suspect. What are these things called? Should
   we always use the long form, "this is an instance of XYZ" or can we call them "objects"? 
+  UPDATE: The question is squarely answered in chapter 17. *Object Oriented Rust Programming*: 
+  > We’ve mentioned that in Rust, we refrain from calling structs and enums “objects” to distinguish them from other languages’ objects. In a struct or enum, the data in the struct fields and the behavior in impl blocks are separated, whereas in other languages, the data and behavior combined into one concept is often labeled an object. However, trait objects are more like objects in other languages in the sense that they combine data and behavior. But trait objects differ from traditional objects in that we can’t add data to a trait object.
 * I don't grok the full range of syntax sugar when it comes to types that implement the `Copy` trait. I don't even know
   how to express this thought so I'll leave it at that. 
 * I'm a fan of Rust's `Self` keyword. If Java had this, for example, we wouldn't have to type out the whole class name in the
@@ -258,4 +267,5 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
   ```
 * Steve Klabnik said that most people think of Rust as not having a runtime, but it does have a runtime, it's just really
   small. Is Rust's "memory allocating and deallocating" work considered part of its runtime? Or is that all handled by
-  the compiler? I'm out of my element here, but I'm curious. What is Rust's runtime?
+  the compiler? I'm out of my element here, but I'm curious. What is Rust's runtime? UPDATE: another component of the Rust
+  runtime is the software machinery to handle dynamic dispatch. See [*Trait Objects Perform Dynamic Dispatch*](https://doc.rust-lang.org/stable/book/ch17-02-trait-objects.html#trait-objects-perform-dynamic-dispatch).
