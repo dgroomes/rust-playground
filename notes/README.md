@@ -56,7 +56,7 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
 - [ ] 10\. Generic Types, Traits, and Lifetimes
     - [x] 10.1. Generic Data Types
     - [x] 10.2. Traits: Defining Shared Behavior
-    - [ ] 10.3. Validating References with Lifetimes
+    - [x] 10.3. Validating References with Lifetimes
 - [ ] 11\. Writing Automated Tests
     - [ ] 11.1. How to Write Tests
     - [ ] 11.2. Controlling How Tests Are Run
@@ -198,6 +198,28 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
     > Rust has alternate syntax for specifying trait bounds inside a `where` clause after the function signature.
 
     > Implementations of a trait on any type that satisfies the trait bounds are called blanket implementations and are extensively used in the Rust standard library.
+  * [10.3: *Validating References with Lifetimes*](https://doc.rust-lang.org/stable/book/ch10-03-lifetime-syntax.html)
+    > The concept of lifetimes is somewhat different from tools in other programming languages, arguably making lifetimes Rust’s most distinctive feature.
+    
+    * The [illustration](https://doc.rust-lang.org/stable/book/ch10-03-lifetime-syntax.html#the-borrow-checker) of the borrow
+      checker using in-line code comments and the "won't compile crustacean" is simple and effective. Brilliant.
+    >  Lifetime annotations describe the relationships of the lifetimes of multiple references to each other without affecting the lifetimes.
+      * I don't quite get this yet.
+    
+    > Remember, when we specify the lifetime parameters in this function signature, we’re not changing the lifetimes of any values passed in or returned.
+      * I don't understand this. I'll try to remember this as a fact even though I don't get it. It seems like we *are*
+        extending the lifetime of the 'xyz' string value to last as long as the lifetime of the return value of the `longest`
+        function. For example, if the program does a ton of work between the invocation of `longest` and when its return
+        value is actually used, we are holding onto the memory used for the 'xyz' value when we could have freed the memory
+        long ago.
+
+    > Ultimately, lifetime syntax is about connecting the lifetimes of various parameters and return values of functions. Once they’re connected, Rust has enough information to allow memory-safe operations and disallow operations that would create dangling pointers or otherwise violate memory safety.
+    
+    > Lifetimes on function or method parameters are called *input lifetimes*, and lifetimes on return values are called *output lifetimes*.
+    
+    > lifetimes are a type of generic
+    
+    * This was the hardest section of I've read so far. 
 
 * Quotes from [Chapter 12.3: *Refactoring to Improve Modularity and Error Handling*](https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html)
   > This Ok(()) syntax might look a bit strange at first, but using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.
@@ -218,4 +240,22 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
   overloads.
 * How does the automatic dereferencing syntax sugar (rather, compilation sugar magic?) work again? For example, in a function
   whose signature includes `&self`, you can author code like `self.xyz` (assuming there is a field `xyz`) and Rust knows
-  what you mean and you don't need to do `*self.xyz` or whatever. 
+  what you mean and you don't need to do `*self.xyz` or whatever.
+* I already forgot what slices are.
+* I'm a fan of the codified error messages that the Rust compiler prints. For example, `error[E0106]: missing lifetime specifier`.
+  It gives an identity to the error, which you can learn over time and become familiar with, and use as shared language when
+  talking about Rust with other people. Nice.
+* Rust is a hard-mode language. It is hard because of the low-level things like lifetimes and the ownership model. But to
+  my surprise, it is also a high-level language because it offers high-level things like traits, lots and lots of syntax
+  sugar, higher order functions, etc. I never realized a language could be both low- and high-level, but here it is. From
+  now on, I will consider the range of lowness to highness that a language (or library) is instead of labelling a language
+  as just high-level or low-level. C is only low-level. Python is only high-level (I think, I'm not a Python person). Java
+  is high-level but if you consider Java contexts that instrument the JVM with special bytecode or use JNI then you might
+  consider Java to span a bit lower level too. Rust ranges over low and high. It's interesting to think about. If you want
+  short bit of code to remind yourself how low-level Rust is, just use this:
+  ```
+  &'a mut i32 // a mutable reference with an explicit lifetime
+  ```
+* Steve Klabnik said that most people think of Rust as not having a runtime, but it does have a runtime, it's just really
+  small. Is Rust's "memory allocating and deallocating" work considered part of its runtime? Or is that all handled by
+  the compiler? I'm out of my element here, but I'm curious. What is Rust's runtime?
