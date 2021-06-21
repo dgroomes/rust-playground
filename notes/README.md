@@ -91,10 +91,10 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
     - [ ] 16.2. Using Message Passing to Transfer Data Between Threads
     - [ ] 16.3. Shared-State Concurrency
     - [ ] 16.4. Extensible Concurrency with the Sync and Send Traits
-- [ ] 17\. Object Oriented Programming Features of Rust
+- [x] 17\. Object Oriented Programming Features of Rust
     - [x] 17.1. Characteristics of Object-Oriented Languages
     - [x] 17.2. Using Trait Objects That Allow for Values of Different Types
-    - [ ] 17.3. Implementing an Object-Oriented Design Pattern
+    - [x] 17.3. Implementing an Object-Oriented Design Pattern
 - [ ] 18\. Patterns and Matching
     - [ ] 18.1. All the Places Patterns Can Be Used
     - [ ] 18.2. Refutability: Whether a Pattern Might Fail to Match
@@ -234,6 +234,21 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
     
     > When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t know all the types that might be used with the code that is using trait objects, so it doesn’t know which method implemented on which type to call.
 
+  * [17.3: *Implementing an Object-Oriented Design Pattern*](https://doc.rust-lang.org/stable/book/ch17-03-oo-design-patterns.html)
+    
+    * I don't totally get it, but I think this quote and the accompanying code snippet are an example of the acrobatics
+      you need to do in Rust due to a combination of Rust not allowing nulls and of Rust's ownership feature:
+      > We need to set `state` to `None` temporarily rather than setting it directly with code like `self.state = self.state.request_review();` to get ownership of the `state` value. This ensures `Post` can’t use the old `state` value after we’ve transformed it into a new state.
+      ```
+      pub fn request_review(&mut self) {
+         if let Some(s) = self.state.take() {
+              self.state = Some(s.request_review())
+         }
+      }
+      ```
+      
+    > Now we can start seeing the advantages of the state pattern: the `request_review` method on `Post` is the same no matter its `state` value. Each state is responsible for its own rules.
+    
 ## Questions
 
 * What are instances of structs called? Are they called objects? Or, is this not correct and I should not be thinking in
@@ -249,7 +264,7 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
   overloads.
 * How does the automatic dereferencing syntax sugar (rather, compilation sugar magic?) work again? For example, in a function
   whose signature includes `&self`, you can author code like `self.xyz` (assuming there is a field `xyz`) and Rust knows
-  what you mean and you don't need to do `*self.xyz` or whatever.
+  what you mean and you don't need to do `*self.xyz` or whatever. UPDATE: I think this is called *deref coercion*
 * I already forgot what slices are.
 * I'm a fan of the codified error messages that the Rust compiler prints. For example, `error[E0106]: missing lifetime specifier`.
   It gives an identity to the error, which you can learn over time and become familiar with, and use as shared language when
@@ -269,3 +284,15 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
   small. Is Rust's "memory allocating and deallocating" work considered part of its runtime? Or is that all handled by
   the compiler? I'm out of my element here, but I'm curious. What is Rust's runtime? UPDATE: another component of the Rust
   runtime is the software machinery to handle dynamic dispatch. See [*Trait Objects Perform Dynamic Dispatch*](https://doc.rust-lang.org/stable/book/ch17-02-trait-objects.html#trait-objects-perform-dynamic-dispatch).
+* I like the use of `::` for namespacing functions instead of using `.` like Java and other languages. In Java, we can fully
+  qualify a method like `java.util.Date` but I like the use of `::` because it means that `.` isn't as overloaded in the
+  language.
+* The language crams in some expressive but cryptic (unless you've learned it) syntax:
+  ```
+  if let Some(s) = self.state.take() {
+      self.state = Some(s.request_review())
+  }
+  ```
+  No parentheses around the `if` boolean check. Pattern matching in the left-hand side. And what gets me is the `let` local
+  variable declaration inside the `if` boolean check.
+* I'm only now realizing that Rust doesn't have nulls?
