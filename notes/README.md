@@ -35,10 +35,10 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
    - [x] 5.1. Defining and Instantiating Structs
    - [x] 5.2. An Example Program Using Structs
    - [x] 5.3. Method Syntax
-- [ ] 6\. Enums and Pattern Matching
-   - [ ] 6.1. Defining an Enum
-   - [ ] 6.2. The match Control Flow Operator
-   - [ ] 6.3. Concise Control Flow with if let
+- [x] 6\. Enums and Pattern Matching
+   - [x] 6.1. Defining an Enum
+   - [x] 6.2. The match Control Flow Operator
+   - [x] 6.3. Concise Control Flow with if let
 - [ ] 7\. Managing Growing Projects with Packages, Crates, and Modules
    - [x] 7.1. Packages and Crates
    - [x] 7.2. Defining Modules to Control Scope and Privacy
@@ -147,6 +147,24 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
   > We’ve put all the things we can do with an instance of a type in one impl block rather than making future users of our code search for capabilities of Rectangle in various places in the library we provide.
 
   > The fact that Rust makes borrowing implicit for method receivers is a big part of making ownership ergonomic in practice.
+
+* Quotes from [Chapter 6: *Enums and Pattern Matching*](https://doc.rust-lang.org/stable/book/ch06-00-enums.html)
+  > Enums are a feature in many languages, but their capabilities differ in each language. Rust’s enums are most similar to algebraic data types in functional languages, such as F#, OCaml, and Haskell.
+  
+  * [6.1: *Defining an Enum*](https://doc.rust-lang.org/stable/book/ch06-01-defining-an-enum.html)
+    * Rust enums are very different from Java enums. In Rust, you can have different instances of an enum type. Rust's enums
+      have a similar type system as [Java's sealed classes](https://openjdk.java.net/jeps/409) (which are coming in Java 17!).
+      Java's sealed classes will enable more pattern matching in Java. In this way, Java is becoming more like Rust (of course,
+      Rust didn't invent pattern matching but for the sake of understanding Java and Rust by comparing and contrasting them,
+      this is a useful characterization).
+    * The values (sub-types?) of a Rust enum are called *variants*.
+    > The `Option` type is used in many places because it encodes the very common scenario in which a value could be something or it could be nothing.
+    
+    > In other words, you have to convert an `Option<T>` to a `T` before you can perform `T` operations with it. Generally, this helps catch one of the most common issues with null: assuming that something isn’t null when it actually is.
+
+  * [6.3: *Concise Control Flow with `if let`*](https://doc.rust-lang.org/stable/book/ch06-03-if-let.html)
+    > Using `if let` means less typing, less indentation, and less boilerplate code. However, you lose the exhaustive checking that `match` enforces. Choosing between `match` and `if let` depends on what you’re doing in your particular situation and whether gaining conciseness is an appropriate trade-off for losing exhaustive checking.
+
 
 * Quotes from [Chapter 7: *Managing Growing Projects with Packages, Crates, and Modules*](https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html)
   > Rust has a number of features that allow you to manage your code’s organization, including which details are exposed, which details are private, and what names are in each scope in your programs. These features, sometimes collectively referred to as the module system, include:
@@ -296,3 +314,8 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
   No parentheses around the `if` boolean check. Pattern matching in the left-hand side. And what gets me is the `let` local
   variable declaration inside the `if` boolean check.
 * I'm only now realizing that Rust doesn't have nulls?
+* I should learn everything that the prelude imports (rather, *uses*).
+* I don't know how to describe this, but Rust's generics don't allow dynamic values (well, except for boxed values with
+  the `dyn` keyword) whereas Java's generics are more lenient. What is the "programming languages theory" name for this
+  type of generics? The kind that *monomorphizes* at compile time? Whereas Java's doesn't do that, it has type erasure of
+  the generic type parameters.
