@@ -69,7 +69,7 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
     - [ ] 12.5. Working with Environment Variables
     - [ ] 12.6. Writing Error Messages to Standard Error Instead of Standard Output
 - [ ] 13\. Functional Language Features: Iterators and Closures
-    - [ ] 13.1. Closures: Anonymous Functions that Can Capture Their Environment
+    - [x] 13.1. Closures: Anonymous Functions that Can Capture Their Environment
     - [x] 13.2. Processing a Series of Items with Iterators
     - [ ] 13.3. Improving Our I/O Project
     - [ ] 13.4. Comparing Performance: Loops vs. Iterators
@@ -131,7 +131,8 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
   > Blocks of code associated with the conditions in if expressions are sometimes called arms
 
   > When we run this program, we’ll see again! printed over and over continuously until we stop the program manually. Most terminals support a keyboard shortcut, ctrl-c, to interrupt a program that is stuck in a continual loop. Give it a try:...
-    * This guide makes Rust approachable for beginners. Is Rust more approachable than other programming languages??
+    * This guide makes Rust approachable for beginners. Is Rust more approachable than other programming languages?? UPDATE:
+      no it is not, it's a hard-mode language!
 * Quotes from [Chapter 4.1: *What Is Ownership?*](https://doc.rust-lang.org/stable/book/ch04-01-what-is-ownership.html)
   > A scope is the range within a program for which an item is valid.
 
@@ -242,6 +243,17 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
 * Quotes from [Chapter 12.3: *Refactoring to Improve Modularity and Error Handling*](https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html)
   > This Ok(()) syntax might look a bit strange at first, but using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.
 
+* Quotes from [Chapter 13: *Functional Language Features: Iterators and Closures*](https://doc.rust-lang.org/stable/book/ch13-00-functional-features.html)
+  * [13.1: *Closures: Anonymous Functions that Can Capture Their Environment*](https://doc.rust-lang.org/stable/book/ch13-01-closures.html)
+    > Unlike functions, closures can capture values from the scope in which they’re defined.
+      * Well said.
+    * Wow, the type inference is strong in Rust. The type of the closure declaration `let add_one_v4 = |x| x + 1 ;` is not
+      even known until the closure is invoked later in the function! Wow, the Rust compiler can accommodate a large context
+      of stuff (lines of code) to do type inference. Cool stuff.
+    > Each closure instance has its own unique anonymous type: that is, even if two closures have the same signature, their types are still considered different.
+
+    > When you create a closure, Rust infers which trait to use based on how the closure uses the values from the environment.
+    * I can't quite follow all the details of the `Fn` traits or *`move` closures* (scary!). But that's ok. 
 * Quotes from [Chapter 14: *More About Cargo and Crates.io*](https://doc.rust-lang.org/stable/book/ch14-00-more-about-cargo.html)
   > As your project develops, you might find that the library crate continues to get bigger and you want to split up your package further into multiple library crates. In this situation, Cargo offers a feature called workspaces that can help manage multiple related packages that are developed in tandem.
 
@@ -319,3 +331,7 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
   the `dyn` keyword) whereas Java's generics are more lenient. What is the "programming languages theory" name for this
   type of generics? The kind that *monomorphizes* at compile time? Whereas Java's doesn't do that, it has type erasure of
   the generic type parameters.
+* Re-format this notes page to use titles, sub-titles, sub-sub-titles (e.g. `##`, `###`) instead of indented bullets. The
+  indented bullets are unwieldy with so much content.
+* It's interesting that struct fields are private by default whereas in Java and Kotlin, fields are package-private and
+  public by default, respectively. 
