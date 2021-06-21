@@ -53,7 +53,7 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
    - [ ] 9.1. Unrecoverable Errors with panic!
    - [ ] 9.2. Recoverable Errors with Result
    - [ ] 9.3. To panic! or Not To panic!
-- [ ] 10\. Generic Types, Traits, and Lifetimes
+- [x] 10\. Generic Types, Traits, and Lifetimes
     - [x] 10.1. Generic Data Types
     - [x] 10.2. Traits: Defining Shared Behavior
     - [x] 10.3. Validating References with Lifetimes
