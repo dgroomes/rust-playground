@@ -58,7 +58,7 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
     - [x] 10.2. Traits: Defining Shared Behavior
     - [x] 10.3. Validating References with Lifetimes
 - [ ] 11\. Writing Automated Tests
-    - [ ] 11.1. How to Write Tests
+    - [x] 11.1. How to Write Tests
     - [ ] 11.2. Controlling How Tests Are Run
     - [ ] 11.3. Test Organization
 - [ ] 12\. An I/O Project: Building a Command Line Program
@@ -245,6 +245,16 @@ sub-chapters.
 * > Lifetimes on function or method parameters are called *input lifetimes*, and lifetimes on return values are called *output lifetimes*.
 * > lifetimes are a type of generic
 * This was the hardest section of I've read so far. 
+
+### [Chapter 11: *Writing Automated Tests*](https://doc.rust-lang.org/stable/book/ch11-00-testing.html)
+
+#### [11.1 *How to Write Tests*](https://doc.rust-lang.org/stable/book/ch11-01-writing-tests.html)
+
+* > When you run your tests with the `cargo test` command, Rust builds a test runner binary that runs the functions annotated with the `test` attribute and reports on whether each test function passes or fails.
+   * Makes sense. I never would have considered how it worked, but when explained like this, it's simple. It's like the [JUnit standalone](https://github.com/dgroomes/junit-playground/tree/main/standalone)
+     pattern but the tooling is all integrated natively (no third party tools like JUnit or Gradle).
+   * Package management, dependency management, and testing! These are the killer features of a modern language. It's not
+     even the language itself, it's the toolchain around.  
 
 ### [Chapter 12: *An I/O Project: Building a Command Line Program*](https://doc.rust-lang.org/stable/book/ch12-00-an-io-project.html)
 
