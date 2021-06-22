@@ -61,13 +61,13 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
     - [x] 11.1. How to Write Tests
     - [x] 11.2. Controlling How Tests Are Run
     - [x] 11.3. Test Organization
-- [ ] 12\. An I/O Project: Building a Command Line Program
+- [x] 12\. An I/O Project: Building a Command Line Program
     - [x] 12.1. Accepting Command Line Arguments
     - [x] 12.2. Reading a File
     - [x] 12.3. Refactoring to Improve Modularity and Error Handling
-    - [ ] 12.4. Developing the Library’s Functionality with Test Driven Development
-    - [ ] 12.5. Working with Environment Variables
-    - [ ] 12.6. Writing Error Messages to Standard Error Instead of Standard Output
+    - [x] 12.4. Developing the Library’s Functionality with Test Driven Development
+    - [x] 12.5. Working with Environment Variables
+    - [x] 12.6. Writing Error Messages to Standard Error Instead of Standard Output
 - [ ] 13\. Functional Language Features: Iterators and Closures
     - [x] 13.1. Closures: Anonymous Functions that Can Capture Their Environment
     - [x] 13.2. Processing a Series of Items with Iterators
@@ -277,6 +277,10 @@ sub-chapters.
 #### [12.3: *Refactoring to Improve Modularity and Error Handling*](https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html)
 
 * > This Ok(()) syntax might look a bit strange at first, but using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.
+  
+#### [12.4: *Developing the Library’s Functionality with Test-Driven Development*](Developing the Library’s Functionality with Test-Driven Development)
+
+> And finally, let’s make sure that we don’t get any lines when we search for a word that isn’t anywhere in the poem, such as “monomorphization”
 
 ### [Chapter 13: *Functional Language Features: Iterators and Closures*](https://doc.rust-lang.org/stable/book/ch13-00-functional-features.html)
 
@@ -372,3 +376,7 @@ sub-chapters.
   indented bullets are unwieldy with so much content.
 * It's interesting that struct fields are private by default whereas in Java and Kotlin, fields are package-private and
   public by default, respectively. 
+* How does equality checking work? Is there a reference equality (Java's `==`) and logical equality (Java's `equals(...)`)?
+  For example, how does equality checking work when comparing a vector to another vector? 
+* I'm getting the sense that Rust, in general, is on the very low end of observability when compared to other languages,
+  especially those like Java and JavaScript which have big runtimes.
