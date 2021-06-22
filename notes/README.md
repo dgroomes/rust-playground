@@ -7,7 +7,7 @@ which is affectionately referred to as "The Book" in the Rust community.
 
 I'm also using [*The Rust Reference*](https://doc.rust-lang.org/reference/introduction.html) book too.
 
-## Reading Checklist
+# Reading Checklist
 
 Crossing off sections of *The Rust Programming Language* book as I finish reading them.
 
@@ -120,164 +120,175 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
 
 ## Notes from *The Book*
 
-Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.org/stable/book).
+Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.org/stable/book) organized by chapters and
+sub-chapters.
 
-* Quotes from [Chapter 3.3: *Function Bodies Contain Statements and Expressions*](https://doc.rust-lang.org/stable/book/ch03-03-how-functions-work.html#function-bodies-contain-statements-and-expressions)
-  > Rust is an expression-based language
+### [Chapter 3: *Common Programming Concepts*](https://doc.rust-lang.org/stable/book/ch03-00-common-programming-concepts.html)
 
-  > Expressions do not include ending semicolons. If you add a semicolon to the end of an expression, you turn it into a statement, which will then not return a value.
+#### [3.3: *Functions*](https://doc.rust-lang.org/stable/book/ch03-03-how-functions-work.html)
+
+* > Rust is an expression-based language
+* > Expressions do not include ending semicolons. If you add a semicolon to the end of an expression, you turn it into a statement, which will then not return a value.
 * The compiler error messages have advice to fix code that doesn't compile. This is nice!
-* Quotes from [Chapter 3.5: *Control Flow*](https://doc.rust-lang.org/stable/book/ch03-05-control-flow.html#control-flow)
-  > Blocks of code associated with the conditions in if expressions are sometimes called arms
 
-  > When we run this program, we’ll see again! printed over and over continuously until we stop the program manually. Most terminals support a keyboard shortcut, ctrl-c, to interrupt a program that is stuck in a continual loop. Give it a try:...
+#### [3.5: *Control Flow*](https://doc.rust-lang.org/stable/book/ch03-05-control-flow.html#control-flow)
+
+* > Blocks of code associated with the conditions in if expressions are sometimes called *arms*
+* > When we run this program, we’ll see again! printed over and over continuously until we stop the program manually. Most terminals support a keyboard shortcut, ctrl-c, to interrupt a program that is stuck in a continual loop. Give it a try:...
     * This guide makes Rust approachable for beginners. Is Rust more approachable than other programming languages?? UPDATE:
-      no it is not, it's a hard-mode language!
-* Quotes from [Chapter 4.1: *What Is Ownership?*](https://doc.rust-lang.org/stable/book/ch04-01-what-is-ownership.html)
-  > A scope is the range within a program for which an item is valid.
+      no it is not! Although this book does an excellent job at teach Rust, it is ultimately a hard-mode language.
 
-  > The ownership of a variable follows the same pattern every time: assigning a value to another variable moves it. When a variable that includes data on the heap goes out of scope, the value will be cleaned up by drop unless the data has been moved to be owned by another variable.
+### [Chapter 4: *Understanding Ownership*](https://doc.rust-lang.org/stable/book/ch04-00-understanding-ownership.html)
+
+#### [4.1: *What Is Ownership?*](https://doc.rust-lang.org/stable/book/ch04-01-what-is-ownership.html)
+
+* > A scope is the range within a program for which an item is valid.
+* > The ownership of a variable follows the same pattern every time: assigning a value to another variable moves it. When a variable that includes data on the heap goes out of scope, the value will be cleaned up by drop unless the data has been moved to be owned by another variable.
 * I feel like it's going to be tricky to remember that tuples implement the Copy trait if and only if all of the component
   types implement Copy. Will I get 'borrow of moved value' compile errors frequently with tuples? Or maybe I'll just get
   that all the time for all sorts of reasons.
-* Quotes from [Chapter 4.2: *References and Borrowing*](https://doc.rust-lang.org/stable/book/ch04-02-references-and-borrowing.html)
-  > We call having references as function parameters borrowing. As in real life, if a person owns something, you can borrow it from them. When you’re done, you have to give it back.
 
-  > Dangling References...the compiler will ensure that the data will not go out of scope before the reference to the data does.
-* Quotes from [Chapter 5.3: *Method Syntax*](https://doc.rust-lang.org/stable/book/ch05-03-method-syntax.html)
-  > We’ve put all the things we can do with an instance of a type in one impl block rather than making future users of our code search for capabilities of Rectangle in various places in the library we provide.
+#### [4.2: *References and Borrowing*](https://doc.rust-lang.org/stable/book/ch04-02-references-and-borrowing.html)
 
-  > The fact that Rust makes borrowing implicit for method receivers is a big part of making ownership ergonomic in practice.
+* > We call having references as function parameters borrowing. As in real life, if a person owns something, you can borrow it from them. When you’re done, you have to give it back.
+* > Dangling References...the compiler will ensure that the data will not go out of scope before the reference to the data does.
 
-* Quotes from [Chapter 6: *Enums and Pattern Matching*](https://doc.rust-lang.org/stable/book/ch06-00-enums.html)
-  > Enums are a feature in many languages, but their capabilities differ in each language. Rust’s enums are most similar to algebraic data types in functional languages, such as F#, OCaml, and Haskell.
+### [Chapter 5: *Using Structs to Structure Related Data*](https://doc.rust-lang.org/stable/book/ch05-00-structs.html)
+
+#### [5.3: *Method Syntax*](https://doc.rust-lang.org/stable/book/ch05-03-method-syntax.html)
+
+* > We’ve put all the things we can do with an instance of a type in one impl block rather than making future users of our code search for capabilities of Rectangle in various places in the library we provide.
+* > The fact that Rust makes borrowing implicit for method receivers is a big part of making ownership ergonomic in practice.
+
+### [Chapter 6: *Enums and Pattern Matching*](https://doc.rust-lang.org/stable/book/ch06-00-enums.html)
+
+* > Enums are a feature in many languages, but their capabilities differ in each language. Rust’s enums are most similar to algebraic data types in functional languages, such as F#, OCaml, and Haskell.
   
-  * [6.1: *Defining an Enum*](https://doc.rust-lang.org/stable/book/ch06-01-defining-an-enum.html)
-    * Rust enums are very different from Java enums. In Rust, you can have different instances of an enum type. Rust's enums
-      have a similar type system as [Java's sealed classes](https://openjdk.java.net/jeps/409) (which are coming in Java 17!).
-      Java's sealed classes will enable more pattern matching in Java. In this way, Java is becoming more like Rust (of course,
-      Rust didn't invent pattern matching but for the sake of understanding Java and Rust by comparing and contrasting them,
-      this is a useful characterization).
-    * The values (sub-types?) of a Rust enum are called *variants*.
-    > The `Option` type is used in many places because it encodes the very common scenario in which a value could be something or it could be nothing.
-    
-    > In other words, you have to convert an `Option<T>` to a `T` before you can perform `T` operations with it. Generally, this helps catch one of the most common issues with null: assuming that something isn’t null when it actually is.
+#### [6.1: *Defining an Enum*](https://doc.rust-lang.org/stable/book/ch06-01-defining-an-enum.html)
 
-  * [6.3: *Concise Control Flow with `if let`*](https://doc.rust-lang.org/stable/book/ch06-03-if-let.html)
-    > Using `if let` means less typing, less indentation, and less boilerplate code. However, you lose the exhaustive checking that `match` enforces. Choosing between `match` and `if let` depends on what you’re doing in your particular situation and whether gaining conciseness is an appropriate trade-off for losing exhaustive checking.
+* Rust enums are very different from Java enums. In Rust, you can have different instances of an enum type. Rust's enums
+  have a similar type system as [Java's sealed classes](https://openjdk.java.net/jeps/409) (which are coming in Java 17!).
+  Java's sealed classes will enable more pattern matching in Java. In this way, Java is becoming more like Rust (of course,
+  Rust didn't invent pattern matching but for the sake of understanding Java and Rust by comparing and contrasting them,
+  this is a useful characterization).
+* The values (sub-types?) of a Rust enum are called *variants*.
+* > The `Option` type is used in many places because it encodes the very common scenario in which a value could be something or it could be nothing.
+* > In other words, you have to convert an `Option<T>` to a `T` before you can perform `T` operations with it. Generally, this helps catch one of the most common issues with null: assuming that something isn’t null when it actually is.
 
+#### [6.3: *Concise Control Flow with `if let`*](https://doc.rust-lang.org/stable/book/ch06-03-if-let.html)
 
-* Quotes from [Chapter 7: *Managing Growing Projects with Packages, Crates, and Modules*](https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html)
-  > Rust has a number of features that allow you to manage your code’s organization, including which details are exposed, which details are private, and what names are in each scope in your programs. These features, sometimes collectively referred to as the module system, include:
+* > Using `if let` means less typing, less indentation, and less boilerplate code. However, you lose the exhaustive checking that `match` enforces. Choosing between `match` and `if let` depends on what you’re doing in your particular situation and whether gaining conciseness is an appropriate trade-off for losing exhaustive checking.
+  
+### [Chapter 7: *Managing Growing Projects with Packages, Crates, and Modules*](https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html)
+
+* > Rust has a number of features that allow you to manage your code’s organization, including which details are exposed, which details are private, and what names are in each scope in your programs. These features, sometimes collectively referred to as the module system, include:
   >
   >   * **Packages**: A Cargo feature that lets you build, test, and share crates
   >   * **Crates**: A tree of modules that produces a library or executable
   >   * **Modules** and use: Let you control the organization, scope, and privacy of paths
   >   * **Paths**: A way of naming an item, such as a struct, function, or module
 
-  > ...Cargo follows a convention that src/main.rs is the crate root of a binary crate with the same name as the package
-    * Confusing sentence. What do package names have to do with the idea that the file `src/main.rs` is a Cargo convention?
-      Or, is the file `main.rs` itself literally a crate? Can a crate be made up of more files (I mean I'm 99% sure yes,
-      I should just keep reading).
-  > If a package contains src/main.rs and src/lib.rs, it has two crates: a library and a binary, both with the same name as the package.
-    * The mental model conflation factor is high. We have one entity--the package--which in this case we can use the
-      example name 'my-project' which is also the same name as the project (*project* is not a Rust-specific concept to
-      be fair but even this doc chapter uses it). On top of that we have two crates (one binary, one library) with that
-      same name. In sum:
-        * Project named "my-project"
-            * You can think of the root directory itself as the project. This is a universal, non-Rust concept.
-        * Package named "my-project"
-            * Think of the `Cargo.toml` file as the identifying thing of the package (I think?).
-        * Binary crate named "my-project"
-            * Think of the file `src/main.rs` as the identifying thing of this crate.
-        * Library crate named "my-project"
-            * Think of the file `src/lib.rs` as the identifying thing of this crate.
+* > ...Cargo follows a convention that src/main.rs is the crate root of a binary crate with the same name as the package
+   * Confusing sentence. What do package names have to do with the idea that the file `src/main.rs` is a Cargo convention?
+     Or, is the file `main.rs` itself literally a crate? Can a crate be made up of more files (I mean I'm 99% sure yes,
+     I should just keep reading).
+* > If a package contains src/main.rs and src/lib.rs, it has two crates: a library and a binary, both with the same name as the package.
+   * The mental model conflation factor is high. We have one entity--the package--which in this case we can use the
+     example name 'my-project' which is also the same name as the project (*project* is not a Rust-specific concept to
+     be fair but even this doc chapter uses it). On top of that we have two crates (one binary, one library) with that
+     same name. In sum:
+      * Project named "my-project"
+         * You can think of the root directory itself as the project. This is a universal, non-Rust concept.
+      * Package named "my-project"
+         * Think of the `Cargo.toml` file as the identifying thing of the package (I think?).
+      * Binary crate named "my-project"
+         * Think of the file `src/main.rs` as the identifying thing of this crate.
+      * Library crate named "my-project"
+         * Think of the file `src/lib.rs` as the identifying thing of this crate.
+     
+     Phew, now I understand it well after writing all that.
+* > Using a semicolon after mod front_of_house rather than using a block tells Rust to load the contents of the module from another file with the same name as the module.
+* > The mod keyword declares modules, and Rust looks in a file with the same name as the module for the code that goes into that module.
 
-      Phew, now I understand it well after writing all that.
+### [Chapter 10: *Generic Types, Traits, and Lifetimes*](https://doc.rust-lang.org/stable/book/ch10-00-generics.html)
 
-  > Using a semicolon after mod front_of_house rather than using a block tells Rust to load the contents of the module from another file with the same name as the module.
+#### [10.1: *Generic Data Types*](https://doc.rust-lang.org/stable/book/ch10-01-syntax.html#generic-data-types)
 
-  > The mod keyword declares modules, and Rust looks in a file with the same name as the module for the code that goes into that module.
-
-* Quotes from [Chapter 10: *Generic Types, Traits, and Lifetimes*](https://doc.rust-lang.org/stable/book/ch10-00-generics.html)
-  * [10.1: *Generic Data Types*](https://doc.rust-lang.org/stable/book/ch10-01-syntax.html#generic-data-types)
-    > Monomorphization is the process of turning generic code into specific code by filling in the concrete types that are used when compiled.
-    
-    > Because Rust compiles generic code into code that specifies the type in each instance, we pay no runtime cost for using generics. When the code runs, it performs just as it would if we had duplicated each definition by hand. The process of monomorphization makes Rust’s generics extremely efficient at runtime.
-
-  * [10.2: *Traits: Defining Shared Behavior*](https://doc.rust-lang.org/stable/book/ch10-02-traits.html)
-    > One restriction to note with trait implementations is that we can implement a trait on a type only if either the trait or the type is local to our crate.
-    > 
-    > ...
-    > 
-    > This restriction is part of a property of programs called *coherence*, and more specifically the *orphan rule*, so named because the parent type is not present. This rule ensures that other people’s code can’t break your code and vice versa. Without the rule, two crates could implement the same trait for the same type, and Rust wouldn’t know which implementation to use.
-    
-    > The `impl Trait` syntax works for straightforward cases but is actually syntax sugar for a longer form, which is called a *trait bound*
+* > Monomorphization is the process of turning generic code into specific code by filling in the concrete types that are used when compiled.
+* > Because Rust compiles generic code into code that specifies the type in each instance, we pay no runtime cost for using generics. When the code runs, it performs just as it would if we had duplicated each definition by hand. The process of monomorphization makes Rust’s generics extremely efficient at runtime.
   
-    > Rust has alternate syntax for specifying trait bounds inside a `where` clause after the function signature.
+#### [10.2: *Traits: Defining Shared Behavior*](https://doc.rust-lang.org/stable/book/ch10-02-traits.html)
 
-    > Implementations of a trait on any type that satisfies the trait bounds are called blanket implementations and are extensively used in the Rust standard library.
-  * [10.3: *Validating References with Lifetimes*](https://doc.rust-lang.org/stable/book/ch10-03-lifetime-syntax.html)
-    > The concept of lifetimes is somewhat different from tools in other programming languages, arguably making lifetimes Rust’s most distinctive feature.
-    
-    * The [illustration](https://doc.rust-lang.org/stable/book/ch10-03-lifetime-syntax.html#the-borrow-checker) of the borrow
+* > One restriction to note with trait implementations is that we can implement a trait on a type only if either the trait or the type is local to our crate.
+  > 
+  > ...
+  > 
+  > This restriction is part of a property of programs called *coherence*, and more specifically the *orphan rule*, so named because the parent type is not present. This rule ensures that other people’s code can’t break your code and vice versa. Without the rule, two crates could implement the same trait for the same type, and Rust wouldn’t know which implementation to use.
+* > The `impl Trait` syntax works for straightforward cases but is actually syntax sugar for a longer form, which is called a *trait bound*
+* > Rust has alternate syntax for specifying trait bounds inside a `where` clause after the function signature.
+* > Implementations of a trait on any type that satisfies the trait bounds are called blanket implementations and are extensively used in the Rust standard library.
+
+#### [10.3: *Validating References with Lifetimes*](https://doc.rust-lang.org/stable/book/ch10-03-lifetime-syntax.html)
+
+* > The concept of lifetimes is somewhat different from tools in other programming languages, arguably making lifetimes Rust’s most distinctive feature.
+   * The [illustration](https://doc.rust-lang.org/stable/book/ch10-03-lifetime-syntax.html#the-borrow-checker) of the borrow
       checker using in-line code comments and the "won't compile crustacean" is simple and effective. Brilliant.
-    >  Lifetime annotations describe the relationships of the lifetimes of multiple references to each other without affecting the lifetimes.
-      * I don't quite get this yet.
-    
-    > Remember, when we specify the lifetime parameters in this function signature, we’re not changing the lifetimes of any values passed in or returned.
-      * I don't understand this. I'll try to remember this as a fact even though I don't get it. It seems like we *are*
-        extending the lifetime of the 'xyz' string value to last as long as the lifetime of the return value of the `longest`
-        function. For example, if the program does a ton of work between the invocation of `longest` and when its return
-        value is actually used, we are holding onto the memory used for the 'xyz' value when we could have freed the memory
-        long ago.
+* >  Lifetime annotations describe the relationships of the lifetimes of multiple references to each other without affecting the lifetimes.
+   * I don't quite get this yet.
+* > Remember, when we specify the lifetime parameters in this function signature, we’re not changing the lifetimes of any values passed in or returned.
+   * I don't understand this. I'll try to remember this as a fact even though I don't get it. It seems like we *are*
+     extending the lifetime of the 'xyz' string value to last as long as the lifetime of the return value of the `longest`
+     function. For example, if the program does a ton of work between the invocation of `longest` and when its return
+     value is actually used, we are holding onto the memory used for the 'xyz' value when we could have freed the memory
+     long ago.
+* > Ultimately, lifetime syntax is about connecting the lifetimes of various parameters and return values of functions. Once they’re connected, Rust has enough information to allow memory-safe operations and disallow operations that would create dangling pointers or otherwise violate memory safety.
+* > Lifetimes on function or method parameters are called *input lifetimes*, and lifetimes on return values are called *output lifetimes*.
+* > lifetimes are a type of generic
+* This was the hardest section of I've read so far. 
 
-    > Ultimately, lifetime syntax is about connecting the lifetimes of various parameters and return values of functions. Once they’re connected, Rust has enough information to allow memory-safe operations and disallow operations that would create dangling pointers or otherwise violate memory safety.
-    
-    > Lifetimes on function or method parameters are called *input lifetimes*, and lifetimes on return values are called *output lifetimes*.
-    
-    > lifetimes are a type of generic
-    
-    * This was the hardest section of I've read so far. 
+### [Chapter 12: *An I/O Project: Building a Command Line Program*](https://doc.rust-lang.org/stable/book/ch12-00-an-io-project.html)
 
-* Quotes from [Chapter 12.3: *Refactoring to Improve Modularity and Error Handling*](https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html)
-  > This Ok(()) syntax might look a bit strange at first, but using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.
+#### [12.3: *Refactoring to Improve Modularity and Error Handling*](https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html)
 
-* Quotes from [Chapter 13: *Functional Language Features: Iterators and Closures*](https://doc.rust-lang.org/stable/book/ch13-00-functional-features.html)
-  * [13.1: *Closures: Anonymous Functions that Can Capture Their Environment*](https://doc.rust-lang.org/stable/book/ch13-01-closures.html)
-    > Unlike functions, closures can capture values from the scope in which they’re defined.
-      * Well said.
-    * Wow, the type inference is strong in Rust. The type of the closure declaration `let add_one_v4 = |x| x + 1 ;` is not
-      even known until the closure is invoked later in the function! Wow, the Rust compiler can accommodate a large context
-      of stuff (lines of code) to do type inference. Cool stuff.
-    > Each closure instance has its own unique anonymous type: that is, even if two closures have the same signature, their types are still considered different.
+* > This Ok(()) syntax might look a bit strange at first, but using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.
 
-    > When you create a closure, Rust infers which trait to use based on how the closure uses the values from the environment.
-    * I can't quite follow all the details of the `Fn` traits or *`move` closures* (scary!). But that's ok. 
-* Quotes from [Chapter 14: *More About Cargo and Crates.io*](https://doc.rust-lang.org/stable/book/ch14-00-more-about-cargo.html)
-  > As your project develops, you might find that the library crate continues to get bigger and you want to split up your package further into multiple library crates. In this situation, Cargo offers a feature called workspaces that can help manage multiple related packages that are developed in tandem.
+### [Chapter 13: *Functional Language Features: Iterators and Closures*](https://doc.rust-lang.org/stable/book/ch13-00-functional-features.html)
 
-* Quotes from [Chapter 17: *Object Oriented Programming Features of Rust*](https://doc.rust-lang.org/stable/book/ch17-00-oop.html)
-  * [17.2: *Using Trait Objects That Allow for Values of Different Types*](https://doc.rust-lang.org/stable/book/ch17-02-trait-objects.html)
+#### [13.1: *Closures: Anonymous Functions that Can Capture Their Environment*](https://doc.rust-lang.org/stable/book/ch13-01-closures.html)
+
+* > Unlike functions, closures can capture values from the scope in which they’re defined.
+   * Well said.
+* Wow, the type inference is strong in Rust. The type of the closure declaration `let add_one_v4 = |x| x + 1 ;` is not
+  even known until the closure is invoked later in the function! Wow, the Rust compiler can accommodate a large context
+  of stuff (lines of code) to do type inference. Cool stuff.
+* > Each closure instance has its own unique anonymous type: that is, even if two closures have the same signature, their types are still considered different.
+* > When you create a closure, Rust infers which trait to use based on how the closure uses the values from the environment.
+* I can't quite follow all the details of the `Fn` traits or *`move` closures* (scary!). But that's ok. 
+
+### [Chapter 14: *More About Cargo and Crates.io*](https://doc.rust-lang.org/stable/book/ch14-00-more-about-cargo.html)
+
+* > As your project develops, you might find that the library crate continues to get bigger and you want to split up your package further into multiple library crates. In this situation, Cargo offers a feature called workspaces that can help manage multiple related packages that are developed in tandem.
+
+### [Chapter 17: *Object Oriented Programming Features of Rust*](https://doc.rust-lang.org/stable/book/ch17-00-oop.html)
+
+#### [17.2: *Using Trait Objects That Allow for Values of Different Types*](https://doc.rust-lang.org/stable/book/ch17-02-trait-objects.html)
   
-    > A generic type parameter can only be substituted with one concrete type at a time, whereas trait objects allow for multiple concrete types to fill in for the trait object at runtime.
-    
-    > When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t know all the types that might be used with the code that is using trait objects, so it doesn’t know which method implemented on which type to call.
+* > A generic type parameter can only be substituted with one concrete type at a time, whereas trait objects allow for multiple concrete types to fill in for the trait object at runtime.
+* > When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t know all the types that might be used with the code that is using trait objects, so it doesn’t know which method implemented on which type to call.
 
-  * [17.3: *Implementing an Object-Oriented Design Pattern*](https://doc.rust-lang.org/stable/book/ch17-03-oo-design-patterns.html)
+#### [17.3: *Implementing an Object-Oriented Design Pattern*](https://doc.rust-lang.org/stable/book/ch17-03-oo-design-patterns.html)
     
-    * I don't totally get it, but I think this quote and the accompanying code snippet are an example of the acrobatics
-      you need to do in Rust due to a combination of Rust not allowing nulls and of Rust's ownership feature:
-      > We need to set `state` to `None` temporarily rather than setting it directly with code like `self.state = self.state.request_review();` to get ownership of the `state` value. This ensures `Post` can’t use the old `state` value after we’ve transformed it into a new state.
-      ```
-      pub fn request_review(&mut self) {
-         if let Some(s) = self.state.take() {
-              self.state = Some(s.request_review())
-         }
-      }
-      ```
-      
-    > Now we can start seeing the advantages of the state pattern: the `request_review` method on `Post` is the same no matter its `state` value. Each state is responsible for its own rules.
+* I don't totally get it, but I think this quote and the accompanying code snippet are an example of the acrobatics
+  you need to do in Rust due to a combination of Rust not allowing nulls and of Rust's ownership feature:
+   * > We need to set `state` to `None` temporarily rather than setting it directly with code like `self.state = self.state.request_review();` to get ownership of the `state` value. This ensures `Post` can’t use the old `state` value after we’ve transformed it into a new state.
+   * ```
+     pub fn request_review(&mut self) {
+        if let Some(s) = self.state.take() {
+             self.state = Some(s.request_review())
+        }
+     }
+     ```
+* > Now we can start seeing the advantages of the state pattern: the `request_review` method on `Post` is the same no matter its `state` value. Each state is responsible for its own rules.
     
 ## Questions
 
@@ -331,7 +342,7 @@ Notes and quotes from [*The Rust Programming Language*](https://doc.rust-lang.or
   the `dyn` keyword) whereas Java's generics are more lenient. What is the "programming languages theory" name for this
   type of generics? The kind that *monomorphizes* at compile time? Whereas Java's doesn't do that, it has type erasure of
   the generic type parameters.
-* Re-format this notes page to use titles, sub-titles, sub-sub-titles (e.g. `##`, `###`) instead of indented bullets. The
+* DONE Re-format this notes page to use titles, sub-titles, sub-sub-titles (e.g. `##`, `###`) instead of indented bullets. The
   indented bullets are unwieldy with so much content.
 * It's interesting that struct fields are private by default whereas in Java and Kotlin, fields are package-private and
   public by default, respectively. 
