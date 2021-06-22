@@ -57,10 +57,10 @@ Crossing off sections of *The Rust Programming Language* book as I finish readin
     - [x] 10.1. Generic Data Types
     - [x] 10.2. Traits: Defining Shared Behavior
     - [x] 10.3. Validating References with Lifetimes
-- [ ] 11\. Writing Automated Tests
+- [x] 11\. Writing Automated Tests
     - [x] 11.1. How to Write Tests
-    - [ ] 11.2. Controlling How Tests Are Run
-    - [ ] 11.3. Test Organization
+    - [x] 11.2. Controlling How Tests Are Run
+    - [x] 11.3. Test Organization
 - [ ] 12\. An I/O Project: Building a Command Line Program
     - [x] 12.1. Accepting Command Line Arguments
     - [x] 12.2. Reading a File
@@ -255,6 +255,22 @@ sub-chapters.
      pattern but the tooling is all integrated natively (no third party tools like JUnit or Gradle).
    * Package management, dependency management, and testing! These are the killer features of a modern language. It's not
      even the language itself, it's the toolchain around.  
+
+#### [11.3 *Test Organization*](https://doc.rust-lang.org/stable/book/ch11-03-test-organization.html)
+
+* > *unit tests* and *integration tests*
+  > 
+  > ...
+  > 
+  > Writing both kinds of tests is important to ensure that the pieces of your library are doing what you expect them to, separately and together.
+  * Pithy!
+  
+* > The `#[cfg(test)]` annotation on the tests module tells Rust to compile and run the test code only when you run `cargo test`, not when you run `cargo build`.
+* > Files in subdirectories of the *tests* directory don’t get compiled as separate crates or have sections in the test output.
+   * This seems arbitrary and easy to forget. Rust's testing support is convenient because it is built into the Rust toolchain
+     but it is making me grateful for the rich feature set of [JUnit 5](https://junit.org/junit5/docs/current/user-guide/)
+     and Gradle's testing support. This is another instance of the trade-off between baking things into the language's
+     toolchain vs. letting a third-party (JUnit, Gradle) build a solution. 
 
 ### [Chapter 12: *An I/O Project: Building a Command Line Program*](https://doc.rust-lang.org/stable/book/ch12-00-an-io-project.html)
 
