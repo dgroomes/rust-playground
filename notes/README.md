@@ -160,6 +160,9 @@ sub-chapters.
   things that reference data on the heap, but they are carefully not referred to as *references* in the Rust vocabulary.
   I would call `s` an *owning reference*. Anyway, this mental model is useful for me.
 
+#### [4.3 *The Slice Type*](https://doc.rust-lang.org/stable/book/ch04-03-slices.html)
+
+* The `&str` type is a *string slice*
 
 ### [Chapter 5: *Using Structs to Structure Related Data*](https://doc.rust-lang.org/stable/book/ch05-00-structs.html)
 
