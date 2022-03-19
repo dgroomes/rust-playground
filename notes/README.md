@@ -144,14 +144,22 @@ sub-chapters.
 
 * > A scope is the range within a program for which an item is valid.
 * > The ownership of a variable follows the same pattern every time: assigning a value to another variable moves it. When a variable that includes data on the heap goes out of scope, the value will be cleaned up by drop unless the data has been moved to be owned by another variable.
+* > ...there’s a design choice that’s implied by this: Rust will never automatically create “deep” copies of your data. Therefore, any automatic copying can be assumed to be inexpensive in terms of runtime performance.
 * I feel like it's going to be tricky to remember that tuples implement the Copy trait if and only if all of the component
   types implement Copy. Will I get 'borrow of moved value' compile errors frequently with tuples? Or maybe I'll just get
   that all the time for all sorts of reasons.
 
 #### [4.2: *References and Borrowing*](https://doc.rust-lang.org/stable/book/ch04-02-references-and-borrowing.html)
 
-* > We call having references as function parameters borrowing. As in real life, if a person owns something, you can borrow it from them. When you’re done, you have to give it back.
-* > Dangling References...the compiler will ensure that the data will not go out of scope before the reference to the data does.
+* > A *reference* is like a pointer in that it’s an address we can follow to access data stored at that address that is owned by some other variable.
+* > These ampersands represent *references*, and they allow you to refer to some value without taking ownership of it.
+* > We call the action of creating a reference borrowing. As in real life, if a person owns something, you can borrow it from them. When you’re done, you have to give it back. You don’t own it.
+* > In Rust ... the compiler guarantees that references will never be dangling references
+* Ok I understand *references* again (for now). What Rust calls *references* are what I would call *non-owning references*,
+  or rather, *borrowing references*. The confusing part is that variables like `s` in `let s = String::from("hello")` are
+  things that reference data on the heap, but they are carefully not referred to as *references* in the Rust vocabulary.
+  I would call `s` an *owning reference*. Anyway, this mental model is useful for me.
+
 
 ### [Chapter 5: *Using Structs to Structure Related Data*](https://doc.rust-lang.org/stable/book/ch05-00-structs.html)
 
@@ -380,3 +388,8 @@ sub-chapters.
   For example, how does equality checking work when comparing a vector to another vector? 
 * I'm getting the sense that Rust, in general, is on the very low end of observability when compared to other languages,
   especially those like Java and JavaScript which have big runtimes.
+* It's about 9 months since I did my first stint with the Rust Book and I haven't touched the language since, but I want
+  to get back into it. As expected, I'm stumbling on ownership right out of the gate, but that's ok because the Rust Book
+  is such a good teacher! After reviewing [Chapter 4: *Understanding Ownership*](https://doc.rust-lang.org/stable/book/ch04-00-understanding-ownership.html)
+  I realize I'm also confused about mutability. Where does mutability *bottom out*? For example, with `String::push_str`,
+  how does the Rust compiler know this method does a mutable operation on the value? 
