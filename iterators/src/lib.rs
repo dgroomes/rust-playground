@@ -40,9 +40,3 @@ fn iterate_by_hand(messages: &Vec<&str>) {
         }
     }
 }
-
-#[allow(dead_code)]
-fn iterate_custom_iterator() {
-    todo!()
-}
-

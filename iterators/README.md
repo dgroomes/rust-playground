@@ -33,7 +33,13 @@ Follow these instructions to build and run the program:
 
 General clean ups, TODOs and things I wish to implement for this project:
 
-* Create a custom iterator.
+* ABANDONED Create a custom iterator.
+  * I abandoned this because I started reading the iterator code and hit a macro. No idea what's going on. I'll visit
+    macros at a later date. There's so much unsafe code too in the iterator implementation. Related code snippets linked
+    below.
+  * <https://github.com/rust-lang/rust/blob/f2661cfe341f88bea919daf52a07015dceaf7a6a/library/core/src/slice/iter.rs#L134>
+  * <https://github.com/rust-lang/rust/blob/f2661cfe341f88bea919daf52a07015dceaf7a6a/library/core/src/slice/iter/macros.rs#L41>
+  
 
 ## Reference
 
