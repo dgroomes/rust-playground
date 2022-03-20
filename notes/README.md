@@ -395,4 +395,14 @@ sub-chapters.
   to get back into it. As expected, I'm stumbling on ownership right out of the gate, but that's ok because the Rust Book
   is such a good teacher! After reviewing [Chapter 4: *Understanding Ownership*](https://doc.rust-lang.org/stable/book/ch04-00-understanding-ownership.html)
   I realize I'm also confused about mutability. Where does mutability *bottom out*? For example, with `String::push_str`,
-  how does the Rust compiler know this method does a mutable operation on the value? 
+  how does the Rust compiler know this method does a mutable operation on the value? UPDATE: ah, it bottoms out in `unsafe`
+  code. See [the implementation of `Vec::spec_extend`](https://github.com/rust-lang/rust/blob/8d60bf427a4b055f464122062e76b3ec34d4f8ba/library/alloc/src/vec/spec_extend.rs#L85)
+  which is used by `String::push_str` (I think). It looks like this:
+  ```rust
+  fn spec_extend(&mut self, iterator: slice::Iter<'a, T>) {
+      let slice = iterator.as_slice();
+      unsafe { self.append_elements(slice) };
+  }
+  ```
+  And when you follow the implementation to its deepest point you'll find the use of Rust intrinsics, which are designed
+  by necessity to be unsafe. Learn more about intrinsics in [The Rust Unstable Book](https://doc.rust-lang.org/beta/unstable-book/language-features/intrinsics.html).
