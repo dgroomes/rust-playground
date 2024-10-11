@@ -1,5 +1,5 @@
 [package]
-name = "read_file"
+name = "read-file"
 version = "0.1.0"
 authors = ["David Groomes <dwgroomes@gmail.com>"]
 edition = "2021"

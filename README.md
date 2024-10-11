@@ -27,11 +27,11 @@ Verbatim copy of the [*Programming a Guessing Game* chapter](https://doc.rust-la
 See the README in [`guessing-game/`](guessing-game/).
 
 
-### `read_file/`
+### `read-file/`
 
 A simple Rust program to read a file.  
 
-See the README in [`read_file/`](read_file/).
+See the README in [`read-file/`](read-file/).
 
 
 ### `json/`
