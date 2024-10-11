@@ -20,11 +20,11 @@ This is not an executable project but instead contains my notes about Rust.
 See the README in [`notes/`](notes/).
 
 
-### `guessing_game/`
+### `guessing-game/`
 
 Verbatim copy of the [*Programming a Guessing Game* chapter](https://doc.rust-lang.org/stable/book/ch02-00-guessing-game-tutorial.html).
 
-See the README in [`guessing_game/`](guessing_game/).
+See the README in [`guessing-game/`](guessing-game/).
 
 
 ### `read_file/`
@@ -52,8 +52,8 @@ See the README in [`iterators/`](iterators/).
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* Create an error handling sub-project
+* [ ] Create an error handling sub-project
   * E.g. `Result/Ok/Err` and the `?` special thing
-* Create an argument parsing sub-project
-* Create an async sub-project
-* Create a sub-project that shells out to another process
+* [ ] Create an argument parsing sub-project
+* [ ] Create an async sub-project
+* [ ] Create a sub-project that shells out to another process
