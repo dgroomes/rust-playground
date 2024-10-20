@@ -5,8 +5,8 @@
 
 ## Standalone subprojects
 
-This repository illustrates different concepts, patterns and examples via standalone subprojects. Each sub-project is
-completely independent of the others and do not depend on the root project. This _standalone sub-project constraint_
+This repository illustrates different concepts, patterns and examples via standalone subprojects. Each subproject is
+completely independent of the others and do not depend on the root project. This _standalone subproject constraint_
 forces the subprojects to be complete and maximizes the reader's chances of successfully running, understanding, and
 re-using the code.
 
@@ -52,8 +52,8 @@ See the README in [`iterators/`](iterators/).
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* [ ] Create an error handling sub-project
+* [ ] SKIP (I've got this covered) Create an error handling subproject
   * E.g. `Result/Ok/Err` and the `?` special thing
-* [ ] Create an argument parsing sub-project
-* [ ] Create an async sub-project
-* [ ] Create a sub-project that shells out to another process
+* [ ] Create an argument parsing subproject
+* [ ] Create an async subproject
+* [ ] Create a subproject that shells out to another process
